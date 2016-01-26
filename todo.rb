@@ -1,9 +1,9 @@
 class List
-  def initialize (description)
+  def initialize
     @all_tasks = []
     end
 
-    def add_task(tasks)
+    def add_task(task)
     @all_tasks << task
     end
 
@@ -19,5 +19,13 @@ class Task
   end
 end
 
-thing = Task.new("blah blah")
-puts thing
+first_list = List.new
+replace_filter = Task.new("Replace water filter")
+do_nothing = Task.new("Sit around and not do anything")
+
+
+
+first_list.add_task(replace_filter)
+first_list.add_task(do_nothing)
+
+# puts first_list.show_all_tasks.inspect
