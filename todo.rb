@@ -29,3 +29,7 @@ first_list.add_task(replace_filter)
 first_list.add_task(do_nothing)
 
 # puts first_list.show_all_tasks.inspect
+
+first_list.show_all_tasks.each do |task|
+  puts task.description
+end
