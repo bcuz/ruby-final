@@ -30,7 +30,8 @@ def show(first_list)
   end
 end
 
-if command == "add"
+case command
+when "add"
   task_obj = Task.new (task_string)
   first_list.add_task(task_obj)
 end
