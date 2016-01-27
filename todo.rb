@@ -36,4 +36,7 @@ when "add"
   first_list.add_task(task_obj)
 end
 
+# is there a way to save the program? so i can add during one run
+# of the program and then view on another. Using a case
+# might be easier once using text files is incorporated
 show(first_list)
