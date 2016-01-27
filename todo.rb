@@ -24,11 +24,15 @@ end
 
 first_list = List.new
 
+def show(first_list)
+  first_list.show_all_tasks.each do |task|
+    puts task.description
+  end
+end
+
 if command == "add"
   task_obj = Task.new (task_string)
   first_list.add_task(task_obj)
 end
 
-first_list.show_all_tasks.each do |task|
-  puts task.description
-end
+show(first_list)
