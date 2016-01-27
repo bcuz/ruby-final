@@ -1,4 +1,5 @@
 command, *task_description = ARGV
+task_string = task_description.join(" ")
 
 class List
   def initialize
@@ -22,13 +23,11 @@ class Task
 end
 
 first_list = List.new
-replace_filter = Task.new("Replace water filter")
-do_nothing = Task.new("Sit around and not do anything")
 
-
-
-first_list.add_task(replace_filter)
-first_list.add_task(do_nothing)
+if command == "add"
+  task_obj = Task.new (task_string)
+  first_list.add_task(task_obj)
+end
 
 # puts first_list.show_all_tasks.inspect
 
