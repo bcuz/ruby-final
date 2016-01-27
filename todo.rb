@@ -1,3 +1,5 @@
+command, *task_description = ARGV
+
 class List
   def initialize
     @all_tasks = []
