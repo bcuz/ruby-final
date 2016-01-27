@@ -29,8 +29,6 @@ if command == "add"
   first_list.add_task(task_obj)
 end
 
-# puts first_list.show_all_tasks.inspect
-
 first_list.show_all_tasks.each do |task|
   puts task.description
 end
