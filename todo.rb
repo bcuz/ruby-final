@@ -23,6 +23,11 @@ class Task
 end
 
 first_list = List.new
+my_list = List.new
+
+File.open("test.txt").each do |line|
+  my_list.add_task(Task.new(line))
+end
 
 def show(first_list)
   first_list.show_all_tasks.each do |task|
@@ -39,4 +44,4 @@ end
 # is there a way to save the program? so i can add during one run
 # of the program and then view on another. Using a case
 # might be easier once using text files is incorporated
-show(first_list)
+show(my_list)
