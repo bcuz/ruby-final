@@ -39,6 +39,5 @@ case command
     puts line
   end
   when "clear"
-    File.open("test.txt", "w") do |line|
-  end
+    File.open("test.txt", "w")
 end
