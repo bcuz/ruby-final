@@ -40,4 +40,6 @@ case command
   end
   when "clear"
     File.open("test.txt", "w")
+  else
+    puts "Not valid"
 end
