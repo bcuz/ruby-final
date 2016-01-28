@@ -26,7 +26,7 @@ first_list = List.new
 
 case command
   when "add"
-    task_obj = Task.new (task_string)
+    task_obj = Task.new(task_string)
     first_list.add_task(task_obj)
 
     File.open("test.txt", "a") do |line|
