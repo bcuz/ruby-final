@@ -38,4 +38,7 @@ case command
     File.open("test.txt").each do |line|
     puts line
   end
+  when "clear"
+    File.open("test.txt", "w") do |line|
+  end
 end
