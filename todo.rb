@@ -40,10 +40,15 @@ case command
       end
     end
   when "print"
-    # File.open("test.txt").each do |line|
-    # puts line
+    File.open("test.txt").each do |line|
+    puts line
+  end
+  when "done"
     current_list.each do |item|
-      puts item
+      task_string = "\r" + task_string + "\n"
+      if task_string == item
+        puts "ya"
+      end
     end
   when "clear"
     File.open("test.txt", "w")
