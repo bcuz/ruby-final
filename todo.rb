@@ -43,6 +43,8 @@ case command
 
     # might be able to do something with show_all_tasks which
     # houses the list that we're dealing with
+    # probably a reason why the instructions make two lists
+    # i'm making another list here myself.
     File.open("test.txt").each do |line|
         current_list << line
       end
