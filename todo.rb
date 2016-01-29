@@ -23,11 +23,6 @@ class Task
 end
 
 first_list = List.new
-current_list = []
-
-File.open("test.txt").each do |line|
-    current_list << line
-  end
 
 case command
   when "add"
@@ -44,6 +39,12 @@ case command
     puts line
   end
   when "done"
+    current_list = []
+
+    File.open("test.txt").each do |line|
+        current_list << line
+      end
+
     task_string = task_string + "\n"
     current_list.each do |item|
       if task_string == item
