@@ -50,7 +50,12 @@ case command
         current_list.delete(item)
       end
     end
-    # puts current_list
+
+    File.open("test.txt", "w") do |line|
+      current_list.each do |task|
+      line.puts task
+      end
+    end
   when "clear"
     File.open("test.txt", "w")
   else
