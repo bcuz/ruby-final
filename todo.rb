@@ -57,7 +57,7 @@ case command
       end
     end
   when "clear"
-    File.open("test.txt", "w")
+    File.truncate("test.txt", 0)
   else
     puts "Not valid"
 end
