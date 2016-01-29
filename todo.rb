@@ -36,7 +36,7 @@ case command
 
     File.open("test.txt", "a") do |line|
       first_list.show_all_tasks.each do |task|
-      line.puts "\r" + task.description
+      line.puts task.description
       end
     end
   when "print"
@@ -44,12 +44,13 @@ case command
     puts line
   end
   when "done"
+    task_string = task_string + "\n"
     current_list.each do |item|
-      task_string = "\r" + task_string + "\n"
       if task_string == item
-        puts "ya"
+        current_list.delete(item)
       end
     end
+    # puts current_list
   when "clear"
     File.open("test.txt", "w")
   else
