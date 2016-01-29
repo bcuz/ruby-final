@@ -41,6 +41,8 @@ case command
   when "done"
     current_list = []
 
+    # might be able to do something with show_all_tasks which
+    # houses the list that we're dealing with
     File.open("test.txt").each do |line|
         current_list << line
       end
