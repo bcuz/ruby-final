@@ -16,7 +16,7 @@ class List
 end
 
 class Task
-  attr_reader :description
+  attr_accessor :description
   def initialize(description)
     @description = description
   end
@@ -48,6 +48,15 @@ case command
     puts line
   end
   when "done"
+    my_list.show_all_tasks.each do |item|
+      item.description = "something else"
+    end
+
+    File.open("test.txt", "w") do |line|
+      my_list.show_all_tasks.each do |task|
+      line.puts task.description
+      end
+    end
   when "delete"
 
     task_string = task_string + "\n"
