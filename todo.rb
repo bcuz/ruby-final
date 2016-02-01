@@ -25,6 +25,8 @@ end
 first_list = List.new
 my_list = List.new
 
+# the point of this code is just to put everything that
+# already exists in the list, inside of my_list. That's it
 File.open("test.txt").each do |line|
       my_list.add_task(Task.new(line))
     end
@@ -47,8 +49,6 @@ case command
   end
   when "done"
   when "delete"
-    # the point of this code is just to put everything that
-    # already exists in the list, inside of my_list. That's it
 
     task_string = task_string + "\n"
 
