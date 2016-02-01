@@ -27,8 +27,7 @@ my_list = List.new
 
 case command
   when "add"
-    task_obj = Task.new(task_string)
-    first_list.add_task(task_obj)
+    first_list.add_task(Task.new(task_string))
 
     # this opens the file that may or may not
     # already have todo items, then
