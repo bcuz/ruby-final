@@ -41,7 +41,7 @@ case command
     File.open("test.txt").each do |line|
     puts line
   end
-  when "done"
+  when "delete"
     # the point of this code is just to put everything that
     # already exists in the list, inside of my_list. That's it
     File.open("test.txt").each do |line|
