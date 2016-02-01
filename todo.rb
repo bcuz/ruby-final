@@ -23,12 +23,16 @@ class Task
 end
 
 first_list = List.new
+my_list = List.new
 
 case command
   when "add"
     task_obj = Task.new(task_string)
     first_list.add_task(task_obj)
 
+    # this opens the file that may or may not
+    # already have todo items, then
+    # adds any items that need to be added
     File.open("test.txt", "a") do |line|
       first_list.show_all_tasks.each do |task|
       line.puts task.description
@@ -39,28 +43,24 @@ case command
     puts line
   end
   when "done"
-    current_list = []
-
-    # might be able to do something with show_all_tasks which
-    # houses the list that we're dealing with
-    # probably a reason why the instructions make two lists
-    # i'm making another list here myself.
+    # the point of this code is just to put everything that
+    # already exists in the list, inside of my_list. That's it
     File.open("test.txt").each do |line|
-        current_list << line
-      end
+      my_list.add_task(Task.new(line))
+    end
 
     task_string = task_string + "\n"
-    current_list.each do |item|
-      if task_string == item
-        current_list.delete(item)
-      end
+
+    my_list.show_all_tasks.delete_if do |item|
+      item.description == task_string
     end
 
     File.open("test.txt", "w") do |line|
-      current_list.each do |task|
-      line.puts task
+      my_list.show_all_tasks.each do |task|
+      line.puts task.description
       end
     end
+
   when "clear"
     File.truncate("test.txt", 0)
   else
