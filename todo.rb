@@ -1,5 +1,5 @@
 command, *task_description = ARGV
-task_string = task_description.join(" ")
+task_string = task_description.join(" ") + "\n"
 
 class List
   def initialize
@@ -58,8 +58,6 @@ case command
       end
     end
   when "delete"
-
-    task_string = task_string + "\n"
 
     my_list.show_all_tasks.delete_if do |item|
       item.description == task_string
