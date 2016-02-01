@@ -28,8 +28,8 @@ my_list = List.new
 # the point of this code is just to put everything that
 # already exists in the list, inside of my_list. That's it
 File.open("test.txt").each do |line|
-      my_list.add_task(Task.new(line))
-    end
+  my_list.add_task(Task.new(line))
+end
 
 case command
   when "add"
