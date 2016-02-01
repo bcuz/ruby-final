@@ -60,8 +60,8 @@ case command
       end
     end
 
-  when "clear"
-    File.truncate("test.txt", 0)
+  # when "clear"
+  #   File.truncate("test.txt", 0)
   else
     puts "Not valid"
 end
