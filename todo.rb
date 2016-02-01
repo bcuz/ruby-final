@@ -25,6 +25,10 @@ end
 first_list = List.new
 my_list = List.new
 
+File.open("test.txt").each do |line|
+      my_list.add_task(Task.new(line))
+    end
+
 case command
   when "add"
     first_list.add_task(Task.new(task_string))
@@ -45,9 +49,6 @@ case command
   when "delete"
     # the point of this code is just to put everything that
     # already exists in the list, inside of my_list. That's it
-    File.open("test.txt").each do |line|
-      my_list.add_task(Task.new(line))
-    end
 
     task_string = task_string + "\n"
 
