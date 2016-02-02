@@ -94,5 +94,5 @@ case command
     File.truncate("test.txt", 0)
     puts "Done"
   else
-    puts "Not valid"
+    puts "Not an eligible command"
 end
