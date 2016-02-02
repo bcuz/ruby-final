@@ -43,6 +43,8 @@ case command
       line.puts task.description
       end
     end
+
+    puts "Added"
   when "print"
     File.open("test.txt").each do |line|
     puts line
@@ -90,6 +92,7 @@ case command
 
   when "clear"
     File.truncate("test.txt", 0)
+    puts "Done"
   else
     puts "Not valid"
 end
