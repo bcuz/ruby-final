@@ -81,7 +81,7 @@ case command
 
   # add incomplete to the object at the start?
   # then have the option to print everything that is
-  # incomplete or complete?
+  # incomplete or complete? feature creature
 
 
   #   # this marks things as done, but
