@@ -49,6 +49,23 @@ case command
     File.open("test.txt").each do |line|
     puts line
   end
+  when "update"
+    puts "Update to what?"
+    new_item = STDIN.gets.chomp
+
+    my_list.show_all_tasks.each do |item|
+    if item.description == task_string
+      item.description = new_item
+      end
+    end
+
+    File.open("test.txt", "w") do |line|
+      my_list.show_all_tasks.each do |task|
+      line.puts task.description
+      end
+    end
+
+    puts "Updated"
   # when "done"
 
   #   # this marks things as done, but
