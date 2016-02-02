@@ -73,7 +73,6 @@ case command
       end
     end
 
-    # puts "Updated"
   # when "done"
 
   #   # this marks things as done, but
