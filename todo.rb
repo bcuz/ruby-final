@@ -31,6 +31,14 @@ File.open("test.txt").each do |line|
   my_list.add_task(Task.new(line))
 end
 
+def write_to_file(file, list)
+  File.open(file, "w") do |line|
+      list.show_all_tasks.each do |task|
+      line.puts task.description
+      end
+    end
+  end
+
 case command
   when "add"
     first_list.add_task(Task.new(task_string))
@@ -67,13 +75,14 @@ case command
       puts "Updated"
     end
 
-    File.open("test.txt", "w") do |line|
-      my_list.show_all_tasks.each do |task|
-      line.puts task.description
-      end
-    end
+    write_to_file("test.txt", my_list)
 
   # when "done"
+
+  # add incomplete to the object at the start?
+  # then have the option to print everything that is
+  # incomplete or complete?
+
 
   #   # this marks things as done, but
   #   # complicates matters if you want to delete
@@ -108,11 +117,7 @@ case command
 
     end
 
-    File.open("test.txt", "w") do |line|
-      my_list.show_all_tasks.each do |task|
-      line.puts task.description
-      end
-    end
+    write_to_file("test.txt", my_list)
 
   when "clear"
     File.truncate("test.txt", 0)
