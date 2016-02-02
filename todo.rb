@@ -23,12 +23,12 @@ class Task
 end
 
 first_list = List.new
-my_list = List.new
+# first_list = List.new
 
 # the point of this code is just to put everything that
-# already exists in the list, inside of my_list. That's it
+# already exists in the list, inside of first_list. That's it
 File.open("test.txt").each do |line|
-  my_list.add_task(Task.new(line))
+  first_list.add_task(Task.new(line))
 end
 
 def write_to_file(file, list)
@@ -62,7 +62,7 @@ case command
     new_item = STDIN.gets.chomp
 
     counter = 0
-    my_list.show_all_tasks.each do |item|
+    first_list.show_all_tasks.each do |item|
     if item.description == task_string
       item.description = new_item
       counter += 1
@@ -75,7 +75,7 @@ case command
       puts "Updated"
     end
 
-    write_to_file("test.txt", my_list)
+    write_to_file("test.txt", first_list)
 
   # when "done"
 
@@ -88,26 +88,26 @@ case command
   #   # complicates matters if you want to delete
   #   # this list item by making you also type in
   #   # the X
-  #   my_list.show_all_tasks.each do |item|
+  #   first_list.show_all_tasks.each do |item|
   #     if item.description == task_string
   #       item.description = "X " + task_string
   #     end
   #   end
 
   #   File.open("test.txt", "w") do |line|
-  #     my_list.show_all_tasks.each do |task|
+  #     first_list.show_all_tasks.each do |task|
   #     line.puts task.description
   #     end
   #   end
   when "delete"
 
     counter = 0
-    my_list.show_all_tasks.delete_if do |item|
+    first_list.show_all_tasks.delete_if do |item|
       if item.description != task_string
         counter += 1
       end
 
-      if counter == my_list.show_all_tasks.length
+      if counter == first_list.show_all_tasks.length
         puts "that item is not in the list bro"
       else
         puts "Deleted"
@@ -117,7 +117,7 @@ case command
 
     end
 
-    write_to_file("test.txt", my_list)
+    write_to_file("test.txt", first_list)
 
   when "clear"
     File.truncate("test.txt", 0)
