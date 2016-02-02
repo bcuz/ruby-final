@@ -66,8 +66,20 @@ case command
   #   end
   when "delete"
 
+    counter = 0
     my_list.show_all_tasks.delete_if do |item|
+      if item.description != task_string
+        counter += 1
+      end
+
+      if counter == my_list.show_all_tasks.length
+        puts "that item is not in the list bro"
+      else
+        puts "Deleted"
+      end
+
       item.description == task_string
+
     end
 
     File.open("test.txt", "w") do |line|
