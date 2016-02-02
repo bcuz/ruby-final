@@ -47,16 +47,23 @@ case command
     File.open("test.txt").each do |line|
     puts line
   end
-  when "done"
-    my_list.show_all_tasks.each do |item|
-      item.description = "something else"
-    end
+  # when "done"
 
-    File.open("test.txt", "w") do |line|
-      my_list.show_all_tasks.each do |task|
-      line.puts task.description
-      end
-    end
+  #   # this marks things as done, but
+  #   # complicates matters if you want to delete
+  #   # this list item by making you also type in
+  #   # the X
+  #   my_list.show_all_tasks.each do |item|
+  #     if item.description == task_string
+  #       item.description = "X " + task_string
+  #     end
+  #   end
+
+  #   File.open("test.txt", "w") do |line|
+  #     my_list.show_all_tasks.each do |task|
+  #     line.puts task.description
+  #     end
+  #   end
   when "delete"
 
     my_list.show_all_tasks.delete_if do |item|
