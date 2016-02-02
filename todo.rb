@@ -23,7 +23,6 @@ class Task
 end
 
 first_list = List.new
-# first_list = List.new
 
 # the point of this code is just to put everything that
 # already exists in the list, inside of first_list. That's it
