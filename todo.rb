@@ -53,10 +53,18 @@ case command
     puts "Update to what?"
     new_item = STDIN.gets.chomp
 
+    counter = 0
     my_list.show_all_tasks.each do |item|
     if item.description == task_string
       item.description = new_item
+      counter += 1
       end
+    end
+
+    if counter < 1
+      puts "That item ain't even exist brah"
+    else
+      puts "Updated"
     end
 
     File.open("test.txt", "w") do |line|
@@ -65,7 +73,7 @@ case command
       end
     end
 
-    puts "Updated"
+    # puts "Updated"
   # when "done"
 
   #   # this marks things as done, but
