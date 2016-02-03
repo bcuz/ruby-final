@@ -81,29 +81,16 @@ case command
 
   when "done"
 
-  first_list.show_all_tasks.each do |task|
-    puts task.complete
-    end
-  # add incomplete to the object at the start?
-  # then have the option to print everything that is
-  # incomplete or complete? feature creature
+  # one problem here is the truthyness of an objects
+  # completeness will always be erased when the program reruns
 
-
-  #   # this marks things as done, but
-  #   # complicates matters if you want to delete
-  #   # this list item by making you also type in
-  #   # the X
-  #   first_list.show_all_tasks.each do |item|
-  #     if item.description == task_string
-  #       item.description = "X " + task_string
-  #     end
+  # first_list.show_all_tasks.each do |task|
+  #     task.complete = true
   #   end
 
-  #   File.open("test.txt", "w") do |line|
-  #     first_list.show_all_tasks.each do |task|
-  #     line.puts task.description
-  #     end
-  #   end
+  # another way to go is to put a weird character in front of the
+  # completed stuff. Then strip that character(s) away when I want to
+  # update the item. I like that idea
   when "delete"
 
     counter = 0
