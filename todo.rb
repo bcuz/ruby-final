@@ -46,14 +46,7 @@ case command
   when "add"
     first_list.add_task(Task.new(task_string))
 
-    # this opens the file that may or may not
-    # already have todo items, then
-    # adds any items that need to be added
-    File.open("test.txt", "a") do |line|
-      first_list.show_all_tasks.each do |task|
-      line.puts task.description
-      end
-    end
+    write_to_file("test.txt", first_list)
 
     puts "Added"
   when "print"
@@ -115,12 +108,14 @@ case command
         counter += 1
       end
 
+      # feel like this might be tested way too often
       if counter == first_list.show_all_tasks.length
         puts "that item is not in the list bro"
       else
         puts "Deleted"
       end
 
+      # item will be deleted if this is true.
       item.description == task_string
 
     end
