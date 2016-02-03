@@ -1,6 +1,6 @@
 command, *task_description = ARGV
-task_string = task_description.join(" ") + "\n"
-task_string.slice! "*** "
+task_description = task_description.join(" ") + "\n"
+task_description.slice! "*** "
 
 class List
   def initialize
@@ -44,7 +44,7 @@ def write_to_file(file, list)
 
 case command
   when "add"
-    first_list.add_task(Task.new(task_string))
+    first_list.add_task(Task.new(task_description))
 
     write_to_file("test.txt", first_list)
 
@@ -59,7 +59,7 @@ case command
 
     counter = 0
     first_list.show_all_tasks.each do |item|
-    if item.description == task_string
+    if item.description == task_description
       item.description = new_item
       counter += 1
       end
@@ -87,8 +87,8 @@ case command
   # update the item. I like that idea
     counter = 0
     first_list.show_all_tasks.each do |item|
-      if item.description == task_string
-        item.description = "*** " + task_string
+      if item.description == task_description
+        item.description = "*** " + task_description
         counter += 1
       end
 
@@ -107,7 +107,7 @@ case command
 
     item.description.slice! "*** "
 
-    if item.description != task_string
+    if item.description != task_description
       counter += 1
       end
     end
@@ -120,7 +120,7 @@ case command
 
     first_list.show_all_tasks.delete_if do |item|
       # item will be deleted if this is true.
-      item.description == task_string
+      item.description == task_description
 
     end
 
