@@ -55,12 +55,12 @@ case command
   end
   when "update"
     puts "Update to what?"
-    new_item = STDIN.gets.chomp
+    new_description = STDIN.gets.chomp
 
     counter = 0
     first_list.show_all_tasks.each do |item|
     if item.description == task_description
-      item.description = new_item
+      item.description = new_description
       counter += 1
       end
     end
