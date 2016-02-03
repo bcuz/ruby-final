@@ -104,6 +104,9 @@ case command
 
     counter = 0
     first_list.show_all_tasks.each do |item|
+
+    item.description.slice! "*** "
+
     if item.description != task_string
       counter += 1
       end
@@ -116,7 +119,6 @@ case command
     end
 
     first_list.show_all_tasks.delete_if do |item|
-
       # item will be deleted if this is true.
       item.description == task_string
 
