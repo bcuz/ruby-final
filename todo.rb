@@ -17,8 +17,11 @@ end
 
 class Task
   attr_accessor :description
+  attr_accessor :complete
+
   def initialize(description)
     @description = description
+    @complete = false
   end
 end
 
@@ -76,8 +79,11 @@ case command
 
     write_to_file("test.txt", first_list)
 
-  # when "done"
+  when "done"
 
+  first_list.show_all_tasks.each do |task|
+    puts task.complete
+    end
   # add incomplete to the object at the start?
   # then have the option to print everything that is
   # incomplete or complete? feature creature
