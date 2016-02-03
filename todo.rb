@@ -85,20 +85,20 @@ case command
   # another way to go is to put a weird character in front of the
   # completed stuff. Then strip that character(s) away when I want to
   # update the item. I like that idea
-  counter = 0
-  first_list.show_all_tasks.each do |item|
-    if item.description == task_string
-      item.description = "*** " + task_string
-      counter += 1
+    counter = 0
+    first_list.show_all_tasks.each do |item|
+      if item.description == task_string
+        item.description = "*** " + task_string
+        counter += 1
+      end
+
     end
 
-  end
+    if counter < 1
+      puts "That item ain't even exist brah"
+    end
 
-  if counter < 1
-    puts "That item ain't even exist brah"
-  end
-
-  write_to_file("test.txt", first_list)
+    write_to_file("test.txt", first_list)
 
   when "delete"
 
