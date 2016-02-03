@@ -109,14 +109,13 @@ case command
       end
     end
 
-    first_list.show_all_tasks.delete_if do |item|
+    if counter == first_list.show_all_tasks.length
+      puts "that item is not in the list bro"
+    else
+      puts "Deleted"
+    end
 
-      # feel like this might be tested way too often
-      if counter == first_list.show_all_tasks.length
-        puts "that item is not in the list bro"
-      else
-        puts "Deleted"
-      end
+    first_list.show_all_tasks.delete_if do |item|
 
       # item will be deleted if this is true.
       item.description == task_string
