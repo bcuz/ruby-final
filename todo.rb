@@ -61,15 +61,15 @@ case command
     new_description = STDIN.gets.chomp
 
     counter = 0
-    first_list.show_all_tasks.each do |item|
-    if item.description == task_description
-      item.description = new_description
+    first_list.show_all_tasks.each do |task|
+    if task.description == task_description
+      task.description = new_description
       counter += 1
       end
     end
 
     if counter < 1
-      puts "That item ain't even exist brah"
+      puts "That task ain't even exist brah"
     else
       puts "Updated"
     end
@@ -87,18 +87,18 @@ case command
 
   # another way to go is to put a weird character in front of the
   # completed stuff. Then strip that character(s) away when I want to
-  # update the item. I like that idea
+  # update the task. I like that idea
     counter = 0
-    first_list.show_all_tasks.each do |item|
-      if item.description == task_description
-        item.description = "*** " + task_description
+    first_list.show_all_tasks.each do |task|
+      if task.description == task_description
+        task.description = "*** " + task_description
         counter += 1
       end
 
     end
 
     if counter < 1
-      puts "That item ain't even exist brah"
+      puts "That task ain't even exist brah"
     end
 
     write_to_file("test.txt", first_list)
@@ -106,24 +106,24 @@ case command
   when "delete"
 
     counter = 0
-    first_list.show_all_tasks.each do |item|
+    first_list.show_all_tasks.each do |task|
 
-    item.description.slice! "*** "
+    task.description.slice! "*** "
 
-    if item.description != task_description
+    if task.description != task_description
       counter += 1
       end
     end
 
     if counter == first_list.show_all_tasks.length
-      puts "that item is not in the list bro"
+      puts "that task is not in the list bro"
     else
       puts "Deleted"
     end
 
-    first_list.show_all_tasks.delete_if do |item|
-      # item will be deleted if this is true.
-      item.description == task_description
+    first_list.show_all_tasks.delete_if do |task|
+      # task will be deleted if this is true.
+      task.description == task_description
 
     end
 
