@@ -1,5 +1,6 @@
 command, *task_description = ARGV
 task_string = task_description.join(" ") + "\n"
+task_string.slice! "*** "
 
 class List
   def initialize
