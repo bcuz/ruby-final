@@ -103,10 +103,13 @@ case command
   when "delete"
 
     counter = 0
-    first_list.show_all_tasks.delete_if do |item|
-      if item.description != task_string
-        counter += 1
+    first_list.show_all_tasks.each do |item|
+    if item.description != task_string
+      counter += 1
       end
+    end
+
+    first_list.show_all_tasks.delete_if do |item|
 
       # feel like this might be tested way too often
       if counter == first_list.show_all_tasks.length
