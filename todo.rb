@@ -4,6 +4,8 @@
 
 # could make delete only delete one item that is named that,
 # not all items named That
+# you typically don't have multiple items on the todo list
+# I could give an error if the item is already on the list
 
 command, *task_description = ARGV
 task_description = task_description.join(" ") + "\n"
