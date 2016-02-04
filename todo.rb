@@ -43,7 +43,7 @@ def write_and_print(file, list)
       end
     end
 
-    puts "\n"
+    puts "\nYour list:"
 
   File.open(file).each do |line|
     puts line
@@ -58,9 +58,11 @@ case command
   when "add"
     first_list.add_task(Task.new(task_description))
 
+    puts "Added"
+
     write_and_print("test.txt", first_list)
 
-    # puts "Added"
+
 
     # print("test.txt")
 
