@@ -58,9 +58,23 @@ def write_and_print(list)
 
 case command
   when "add"
-    first_list.add_task(Task.new(task_string))
 
-    puts "Added"
+    counter = 0
+    first_list.show_all_tasks.each do |task|
+
+       task.description.slice! "*** "
+
+       if task.description == task_string
+         counter += 1
+       end
+     end
+
+    if counter >= 1
+      puts "That item is already on the list"
+    else
+      first_list.add_task(Task.new(task_string))
+      puts "Added"
+    end
 
     write_and_print(first_list)
 
