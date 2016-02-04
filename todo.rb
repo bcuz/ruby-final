@@ -62,10 +62,10 @@ case command
 
     # print("test.txt")
 
-  # when "print"
-  #   File.open("test.txt").each do |line|
-  #     puts line
-  # end
+  when "print"
+    File.open("test.txt").each do |line|
+      puts line
+  end
   when "update"
     puts "Update to what?"
     new_description = STDIN.gets.chomp
