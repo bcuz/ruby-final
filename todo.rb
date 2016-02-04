@@ -62,8 +62,11 @@ case command
 
     counter = 0
     first_list.show_all_tasks.each do |task|
+
+    task.description.slice! "*** "
+
     if task.description == task_description
-      task.description = new_description
+      task.description = "*** " + new_description
       counter += 1
       end
     end
