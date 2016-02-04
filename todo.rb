@@ -120,6 +120,25 @@ case command
 
     write_and_print(first_list)
 
+  when "uncheck"
+
+    counter = 0
+    first_list.show_all_tasks.each do |task|
+      task.description.slice! "*** "
+
+
+      if task.description == task_string
+        task.description = task_string
+        counter += 1
+      end
+    end
+
+    if counter < 1
+      puts "That task ain't even exist brah"
+    end
+
+    write_and_print(first_list)
+
   when "delete"
 
     counter = 0
