@@ -108,19 +108,24 @@ case command
   when "check"
     # bad message when youre tyring to check something
     # that's already checked
-
+    checked_task_string = "*** " + task_string
+    # puts checked_task_string
     counter = 0
+    checked = false
     first_list.show_all_tasks.each do |task|
+
       if task.description == task_string
-        task.description = "*** " + task_string
+        task.description = checked_task_string
         counter += 1
-      # else
-      #   checked_task = "*** " + task.description
+      elsif task.description == checked_task_string
+        checked = true
       end
     end
 
-    if counter < 1
+    if counter < 1 && checked == false
       puts "That task ain't even exist brah"
+    elsif checked
+      puts "That task is already checked"
     end
 
     write_and_print(first_list)
