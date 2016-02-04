@@ -78,7 +78,7 @@ case command
 
     write_to_file("test.txt", first_list)
 
-  when "done"
+  when "check"
     counter = 0
     first_list.show_all_tasks.each do |task|
       if task.description == task_description
