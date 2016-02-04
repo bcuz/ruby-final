@@ -31,12 +31,13 @@ end
 
 first_list = List.new
 
-# the point of this code is just to put everything that
-# already exists in the list, inside of first_list. That's it
+# put everything that already exists in test.txt
+# into a list object. This makes life easier
 File.open("test.txt").each do |line|
   first_list.add_task(Task.new(line))
 end
 
+# when commands are executed, we just rewrite the list
 def write_to_file(file, list)
   File.open(file, "w") do |line|
       list.show_all_tasks.each do |task|
