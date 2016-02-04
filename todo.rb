@@ -81,24 +81,12 @@ case command
     write_to_file("test.txt", first_list)
 
   when "done"
-
-  # one problem here is the truthyness of an objects
-  # completeness will always be erased when the program reruns
-
-  # first_list.show_all_tasks.each do |task|
-  #     task.complete = true
-  #   end
-
-  # another way to go is to put a weird character in front of the
-  # completed stuff. Then strip that character(s) away when I want to
-  # update the task. I like that idea
     counter = 0
     first_list.show_all_tasks.each do |task|
       if task.description == task_description
         task.description = "*** " + task_description
         counter += 1
       end
-
     end
 
     if counter < 1
