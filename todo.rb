@@ -40,8 +40,8 @@ File.open("test.txt").each do |line|
 end
 
 # when commands are executed, we just rewrite the list
-def write_and_print(file, list)
-  File.open(file, "w") do |line|
+def write_and_print(list)
+  File.open("test.txt", "w") do |line|
       list.show_all_tasks.each do |task|
       line.puts task.description
       end
@@ -49,7 +49,7 @@ def write_and_print(file, list)
 
     puts "\nYour list:"
 
-  File.open(file).each do |line|
+  File.open("test.txt").each do |line|
     puts line
   end
   end
@@ -60,7 +60,7 @@ case command
 
     puts "Added"
 
-    write_and_print("test.txt", first_list)
+    write_and_print(first_list)
 
   when "print"
     File.open("test.txt").each do |line|
@@ -87,7 +87,7 @@ case command
       puts "Updated"
     end
 
-    write_and_print("test.txt", first_list)
+    write_and_print(first_list)
 
   when "check"
     counter = 0
@@ -102,7 +102,7 @@ case command
       puts "That task ain't even exist brah"
     end
 
-    write_and_print("test.txt", first_list)
+    write_and_print(first_list)
 
   when "delete"
 
@@ -128,7 +128,7 @@ case command
 
     end
 
-    write_and_print("test.txt", first_list)
+    write_and_print(first_list)
 
   when "clear"
     File.truncate("test.txt", 0)
