@@ -21,11 +21,9 @@ end
 
 class Task
   attr_accessor :description
-  attr_accessor :complete
 
   def initialize(description)
     @description = description
-    @complete = false
   end
 end
 
