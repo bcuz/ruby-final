@@ -106,11 +106,16 @@ case command
     write_and_print(first_list)
 
   when "check"
+    # bad message when youre tyring to check something
+    # that's already checked
+
     counter = 0
     first_list.show_all_tasks.each do |task|
       if task.description == task_string
         task.description = "*** " + task_string
         counter += 1
+      # else
+      #   checked_task = "*** " + task.description
       end
     end
 
@@ -126,6 +131,15 @@ case command
     first_list.show_all_tasks.each do |task|
       task.description.slice! "*** "
 
+      # i could make another counter. to make sure there's
+      # at least one task with *** in it.
+      # that's no good. because a different task could make
+      # that true. One that i'm not trying to uncheck
+
+      # is_checked = task.description.slice! "*** "
+
+      # if is_checked != "*** "
+      #   puts ""
 
       if task.description == task_string
         task.description = task_string
