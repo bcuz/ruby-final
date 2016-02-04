@@ -36,25 +36,38 @@ File.open("test.txt").each do |line|
 end
 
 # when commands are executed, we just rewrite the list
-def write_to_file(file, list)
+def write_and_print(file, list)
   File.open(file, "w") do |line|
       list.show_all_tasks.each do |task|
       line.puts task.description
       end
     end
+
+    puts "\n"
+
+  File.open(file).each do |line|
+    puts line
   end
+  end
+
+# def print(file)
+
+# end
 
 case command
   when "add"
     first_list.add_task(Task.new(task_description))
 
-    write_to_file("test.txt", first_list)
+    write_and_print("test.txt", first_list)
 
-    puts "Added"
-  when "print"
-    File.open("test.txt").each do |line|
-      puts line
-  end
+    # puts "Added"
+
+    # print("test.txt")
+
+  # when "print"
+  #   File.open("test.txt").each do |line|
+  #     puts line
+  # end
   when "update"
     puts "Update to what?"
     new_description = STDIN.gets.chomp
@@ -76,7 +89,7 @@ case command
       puts "Updated"
     end
 
-    write_to_file("test.txt", first_list)
+    write_and_print("test.txt", first_list)
 
   when "check"
     counter = 0
@@ -91,7 +104,7 @@ case command
       puts "That task ain't even exist brah"
     end
 
-    write_to_file("test.txt", first_list)
+    write_and_print("test.txt", first_list)
 
   when "delete"
 
@@ -117,7 +130,7 @@ case command
 
     end
 
-    write_to_file("test.txt", first_list)
+    write_and_print("test.txt", first_list)
 
   when "clear"
     File.truncate("test.txt", 0)
