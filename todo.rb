@@ -106,10 +106,8 @@ case command
     write_and_print(first_list)
 
   when "check"
-    # bad message when youre tyring to check something
-    # that's already checked
     checked_task_string = "*** " + task_string
-    # puts checked_task_string
+
     counter = 0
     checked = false
     first_list.show_all_tasks.each do |task|
