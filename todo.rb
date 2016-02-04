@@ -55,7 +55,7 @@ case command
     puts "Added"
   when "print"
     File.open("test.txt").each do |line|
-    puts line
+      puts line
   end
   when "update"
     puts "Update to what?"
