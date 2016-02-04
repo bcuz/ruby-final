@@ -7,9 +7,9 @@
 # you typically don't have multiple items on the todo list
 # I could give an error if the item is already on the list
 
-command, *task_description = ARGV
-task_description = task_description.join(" ") + "\n"
-task_description.slice! "*** "
+command, *task_string = ARGV
+task_string = task_string.join(" ") + "\n"
+task_string.slice! "*** "
 
 class List
   def initialize
@@ -58,7 +58,7 @@ def write_and_print(list)
 
 case command
   when "add"
-    first_list.add_task(Task.new(task_description))
+    first_list.add_task(Task.new(task_string))
 
     puts "Added"
 
@@ -77,7 +77,7 @@ case command
 
     task.description.slice! "*** "
 
-    if task.description == task_description
+    if task.description == task_string
       task.description = "*** " + new_description
       counter += 1
       end
@@ -94,8 +94,8 @@ case command
   when "check"
     counter = 0
     first_list.show_all_tasks.each do |task|
-      if task.description == task_description
-        task.description = "*** " + task_description
+      if task.description == task_string
+        task.description = "*** " + task_string
         counter += 1
       end
     end
@@ -113,7 +113,7 @@ case command
 
     task.description.slice! "*** "
 
-    if task.description != task_description
+    if task.description != task_string
       counter += 1
       end
     end
@@ -126,7 +126,7 @@ case command
 
     first_list.show_all_tasks.delete_if do |task|
       # task will be deleted if this is true.
-      task.description == task_description
+      task.description == task_string
 
     end
 
