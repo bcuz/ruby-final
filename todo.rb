@@ -3,7 +3,7 @@
 # off of the description
 
 # could make delete only delete one item that is named that,
-# not all items named that
+# not all items named That
 
 command, *task_description = ARGV
 task_description = task_description.join(" ") + "\n"
