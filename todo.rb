@@ -58,10 +58,6 @@ case command
 
     write_and_print("test.txt", first_list)
 
-
-
-    # print("test.txt")
-
   when "print"
     File.open("test.txt").each do |line|
       puts line
