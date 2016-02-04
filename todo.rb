@@ -50,10 +50,6 @@ def write_and_print(file, list)
   end
   end
 
-# def print(file)
-
-# end
-
 case command
   when "add"
     first_list.add_task(Task.new(task_description))
