@@ -1,11 +1,4 @@
 # TODO:
-# could make an undone or uncheck, where it takes the ***
-# off of the description
-
-# could make delete only delete one item that is named that,
-# not all items named That
-# you typically don't have multiple items on the todo list
-# I could give an error if the item is already on the list
 
 command, *task_string = ARGV
 task_string = task_string.join(" ") + "\n"
