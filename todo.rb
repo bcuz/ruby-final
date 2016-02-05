@@ -22,6 +22,21 @@ class List
         self.add_task(Task.new(line))
       end
     end
+
+    # when commands are executed, we just rewrite the list
+    def write_and_print(list)
+    File.open("test.txt", "w") do |line|
+        list.show_all_tasks.each do |task|
+        line.puts task.description
+        end
+      end
+
+      puts "\nYour list:"
+
+    File.open("test.txt").each do |line|
+      puts line
+    end
+    end
 end
 
 class Task
@@ -37,21 +52,6 @@ first_list = List.new
 # put everything that already exists in test.txt
 # into a list object. This makes life easier
 first_list.existing_list
-
-# when commands are executed, we just rewrite the list
-def write_and_print(list)
-  File.open("test.txt", "w") do |line|
-      list.show_all_tasks.each do |task|
-      line.puts task.description
-      end
-    end
-
-    puts "\nYour list:"
-
-  File.open("test.txt").each do |line|
-    puts line
-  end
-  end
 
 case command
   when "add"
