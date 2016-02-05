@@ -17,9 +17,9 @@ class List
     @all_tasks
     end
 
-    def existing_list(list)
+    def existing_list
       File.open("test.txt").each do |line|
-        list.add_task(Task.new(line))
+        self.add_task(Task.new(line))
       end
     end
 end
@@ -36,7 +36,7 @@ first_list = List.new
 
 # put everything that already exists in test.txt
 # into a list object. This makes life easier
-first_list.existing_list(first_list)
+first_list.existing_list
 
 # when commands are executed, we just rewrite the list
 def write_and_print(list)
