@@ -24,9 +24,9 @@ class List
     end
 
     # when commands are executed, we just rewrite the list
-    def write_and_print(list)
+    def write_and_print
     File.open("test.txt", "w") do |line|
-        list.show_all_tasks.each do |task|
+        self.show_all_tasks.each do |task|
         line.puts task.description
         end
       end
