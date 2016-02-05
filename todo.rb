@@ -73,7 +73,7 @@ case command
       puts "Added"
     end
 
-    write_and_print
+    first_list.write_and_print
 
   when "print"
     File.open("test.txt").each do |line|
@@ -100,7 +100,7 @@ case command
       puts "Updated"
     end
 
-    write_and_print
+    first_list.write_and_print
 
   when "check"
     checked_task_string = "*** " + task_string
@@ -125,7 +125,7 @@ case command
       puts "That task is already checked"
     end
 
-    write_and_print
+    first_list.write_and_print
 
   when "uncheck"
 
@@ -144,7 +144,7 @@ case command
       puts "That task isn't in the list or isn't checked"
     end
 
-    write_and_print
+    first_list.write_and_print
 
   when "delete"
 
@@ -170,7 +170,7 @@ case command
 
     end
 
-    write_and_print
+    first_list.write_and_print
 
   when "clear"
     File.truncate("test.txt", 0)
