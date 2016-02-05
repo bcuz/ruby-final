@@ -112,6 +112,8 @@ case command
       if task.description == task_string
         task.description = checked_task_string
         counter += 1
+
+        puts "\nChecked"
       elsif task.description == checked_task_string
         checked = true
       end
