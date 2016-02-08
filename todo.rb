@@ -94,7 +94,7 @@ case command
       puts "That item is already on the list"
     else
       first_list.add_task(Task.new(task_string))
-      puts "Added"
+      puts "\nAdded"
     end
 
     first_list.write_and_print
@@ -123,7 +123,7 @@ case command
     if counter < 1
       puts "That task ain't even exist brah"
     else
-      puts "Updated"
+      puts "\nUpdated"
     end
 
     first_list.write_and_print
@@ -162,7 +162,7 @@ case command
         task.description = task_string
         counter += 1
 
-        puts "Unchecked"
+        puts "\nUnchecked"
       end
     end
 
@@ -187,7 +187,7 @@ case command
     if counter == first_list.show_all_tasks.length
       puts "that task is not in the list bro"
     else
-      puts "Deleted"
+      puts "\nDeleted"
     end
 
     first_list.show_all_tasks.delete_if do |task|
@@ -200,7 +200,7 @@ case command
 
   when "clear"
     File.truncate("test.txt", 0)
-    puts "Done"
+    puts "\nDone"
   else
     puts "Not an eligible command"
 end
