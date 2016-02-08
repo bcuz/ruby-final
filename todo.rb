@@ -111,7 +111,7 @@ case command
     # message when I was trying to use gets.chomp
     new_description = STDIN.gets.chomp
 
-    counter = 0
+    in_list = false
     first_list.show_all_tasks.each do |task|
 
     # this right here probably causes an overwrite
@@ -120,14 +120,14 @@ case command
 
     if task.description == task_string
       task.description = new_description
-      counter += 1
+      in_list = true
     elsif task.description == "*** " + task_string
       task.description = "*** " + new_description
-      counter += 1
+      in_list = true
       end
     end
 
-    if counter < 1
+    if in_list = false
       puts "That task ain't even exist brah"
     else
       puts "\nUpdated"
