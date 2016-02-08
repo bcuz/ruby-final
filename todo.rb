@@ -65,6 +65,7 @@ class Task
   end
 end
 
+# creates the new list
 first_list = List.new
 
 # put everything that already exists in test.txt
