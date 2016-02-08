@@ -97,14 +97,18 @@ case command
       puts "\nAdded"
     end
 
+    # writes the adjusted list to the file and prints it too
     first_list.write_and_print
 
+  # just prints the entire list
   when "print"
     File.open("test.txt").each do |line|
       puts line
   end
   when "update"
     puts "Update to what?"
+    # STDIN is just some code I got from the error
+    # message when I was trying to use gets.chomp
     new_description = STDIN.gets.chomp
 
     counter = 0
@@ -112,9 +116,12 @@ case command
 
     # this right here probably causes an overwrite
     # problem as seen previously.
-    task.description.slice! "*** "
+    # task.description.slice! "*** "
 
     if task.description == task_string
+      task.description = new_description
+      counter += 1
+    elsif task.description == "*** " + task_string
       task.description = "*** " + new_description
       counter += 1
       end
