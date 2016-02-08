@@ -181,20 +181,16 @@ case command
     first_list.show_all_tasks.each do |task|
 
     # this loops through the list
-    # and if the task description does not
-    # equal the task string checkd and/ or !checked,
-    # then the counter is increased by one
-    # so if there is no match at all, the counter
-    # will equal the length of the task list
+    # if the task_string is found,
+    # in_list variable is changed to true
 
-    # maybe there's a simpler way to do this.
     if task.description == task_string || task.description == "*** " + task_string
       in_list = true
       end
     end
 
-    # if the above if statement runs for every task,
-    # then the task is not even in the list
+    # if the description is not found in the list
+    # print an error message
     if in_list == false
       puts "that task is not in the list bro"
     else
