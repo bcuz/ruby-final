@@ -81,12 +81,14 @@ case command
       # loops through the list and
       # if the description of a task equals
       # the string passed into the command line (checked or unchecked)
-      # then the counter is increased by one
+      # then we're notified that the task is already in the list
        if task.description == task_string || task.description == "*** " + task_string
          not_in_list = false
        end
      end
 
+     # if teh item is already in the list, notify the user and don't add it
+     # otherwise, add it to the list
 
     if not_in_list == false
       puts "That item is already on the list"
