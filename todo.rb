@@ -180,7 +180,14 @@ case command
     counter = 0
     first_list.show_all_tasks.each do |task|
 
-    if task.description != task_string || task.description != "*** " + task_string
+    # this loops through the list
+    # and if the task description does not
+    # equal the task string checkd and/ or !checked,
+    # then the counter is increased by one
+    # so if there is no match at all, the counter
+    # will equal the length of the task list
+
+    if task.description != task_string && task.description != "*** " + task_string
       counter += 1
       end
     end
