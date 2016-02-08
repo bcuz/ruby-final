@@ -123,7 +123,7 @@ case command
       end
     end
 
-    if in_list = false
+    if in_list == false
       puts "That task ain't even exist brah"
     else
       puts "\nUpdated"
@@ -180,9 +180,7 @@ case command
     counter = 0
     first_list.show_all_tasks.each do |task|
 
-    task.description.slice! "*** "
-
-    if task.description != task_string
+    if task.description != task_string || task.description != "*** " + task_string
       counter += 1
       end
     end
@@ -195,7 +193,7 @@ case command
 
     first_list.show_all_tasks.delete_if do |task|
       # task will be deleted if this is true.
-      task.description == task_string
+      task.description == task_string || task.description == "*** " + task_string
 
     end
 
