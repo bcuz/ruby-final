@@ -114,10 +114,6 @@ case command
     in_list = false
     first_list.show_all_tasks.each do |task|
 
-    # this right here probably causes an overwrite
-    # problem as seen previously.
-    # task.description.slice! "*** "
-
     if task.description == task_string
       task.description = new_description
       in_list = true
