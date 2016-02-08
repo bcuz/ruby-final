@@ -82,9 +82,7 @@ case command
       # if the description of a task equals
       # the string passed into the command line (checked or unchecked)
       # then the counter is increased by one
-       if task.description == task_string
-         counter += 1
-       elsif task.description == "*** " + task_string
+       if task.description == task_string || task.description == "*** " + task_string
          counter += 1
        end
      end
