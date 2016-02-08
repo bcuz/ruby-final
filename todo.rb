@@ -75,7 +75,7 @@ first_list.existing_list
 case command
   when "add"
 
-    task_in_list = false
+    not_in_list = true
     first_list.show_all_tasks.each do |task|
 
       # loops through the list and
@@ -83,12 +83,12 @@ case command
       # the string passed into the command line (checked or unchecked)
       # then the counter is increased by one
        if task.description == task_string || task.description == "*** " + task_string
-         task_in_list = true
+         not_in_list = false
        end
      end
 
 
-    if task_in_list
+    if not_in_list == false
       puts "That item is already on the list"
     else
       first_list.add_task(Task.new(task_string))
