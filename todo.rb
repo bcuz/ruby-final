@@ -81,6 +81,7 @@ case command
        if task.description == task_string
          counter += 1
        elsif task.description == "*** " + task_string
+         counter += 1
        end
      end
 

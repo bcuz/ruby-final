@@ -1,6 +1,5 @@
-bob
+*** bob
 tgh
-*** something
 thhis
 test
 new
