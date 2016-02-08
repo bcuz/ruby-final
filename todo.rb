@@ -59,12 +59,9 @@ case command
     counter = 0
     first_list.show_all_tasks.each do |task|
 
-      # this is overwriting the existing descriptions
-      # that are checked whenever this case is run
-       task.description.slice! "*** "
-
        if task.description == task_string
          counter += 1
+       elsif task.description == "*** " + task_string
        end
      end
 
