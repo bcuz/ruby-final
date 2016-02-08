@@ -177,7 +177,7 @@ case command
 
   when "delete"
 
-    counter = 0
+    in_list = false
     first_list.show_all_tasks.each do |task|
 
     # this loops through the list
@@ -187,12 +187,15 @@ case command
     # so if there is no match at all, the counter
     # will equal the length of the task list
 
-    if task.description != task_string && task.description != "*** " + task_string
-      counter += 1
+    # maybe there's a simpler way to do this.
+    if task.description == task_string || task.description == "*** " + task_string
+      in_list = true
       end
     end
 
-    if counter == first_list.show_all_tasks.length
+    # if the above if statement runs for every task,
+    # then the task is not even in the list
+    if in_list == false
       puts "that task is not in the list bro"
     else
       puts "\nDeleted"
