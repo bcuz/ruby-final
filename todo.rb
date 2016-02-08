@@ -1,7 +1,16 @@
-# TODO:
 
+# takes a command and a string at the command line
 command, *task_string = ARGV
+
+# joins the string recieved from the command line
+# and add a newline character at the end
+# the newline character was being added somewhere by default,
+# which is why I add it here. Could look into that
 task_string = task_string.join(" ") + "\n"
+
+# Takes away any checkmarks from the task string
+# makes it easier to manipulate later. Not really
+# sure about that last statement
 task_string.slice! "*** "
 
 class List
@@ -9,14 +18,18 @@ class List
     @all_tasks = []
     end
 
+    # puts a task in an array
     def add_task(task)
     @all_tasks << task
     end
 
+    # returns the array of tasks
     def show_all_tasks
     @all_tasks
     end
 
+    # opens the file we're manipulating
+    # adds any tasks in that file to the list object
     def existing_list
       File.open("test.txt").each do |line|
         self.add_task(Task.new(line))
@@ -31,6 +44,8 @@ class List
         end
       end
 
+    # print out the contents of the list after every
+    # rewrite
       puts "\nYour list:"
 
     File.open("test.txt").each do |line|
@@ -40,8 +55,11 @@ class List
 end
 
 class Task
+  # description property can be
+  # read and rewritten
   attr_accessor :description
 
+  # task just has the description property
   def initialize(description)
     @description = description
   end
