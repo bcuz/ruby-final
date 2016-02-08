@@ -78,12 +78,17 @@ case command
     counter = 0
     first_list.show_all_tasks.each do |task|
 
+      # loops through the list and
+      # if the description of a task equals
+      # the string passed into the command line (checked or unchecked)
+      # then the counter is increased by one
        if task.description == task_string
          counter += 1
        elsif task.description == "*** " + task_string
          counter += 1
        end
      end
+
 
     if counter >= 1
       puts "That item is already on the list"
