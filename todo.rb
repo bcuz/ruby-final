@@ -138,11 +138,16 @@ case command
     checked = false
     first_list.show_all_tasks.each do |task|
 
+      # if the task description (nonchecked) equals the task_string
+      # set the task description to the checked version
+
       if task.description == task_string
         task.description = checked_task_string
         counter += 1
 
         puts "\nChecked"
+
+      # test whether the task_description is already checked
       elsif task.description == checked_task_string
         checked = true
       end
