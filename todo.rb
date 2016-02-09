@@ -114,15 +114,25 @@ case command
     in_list = false
     first_list.show_all_tasks.each do |task|
 
+    # if the unchecked task is in the list
+    # change the task's description to the new
+    # one saved in the variable above
     if task.description == task_string
       task.description = new_description
       in_list = true
+
+    # if the checked task is in the list
+    # change the task description to the new
+    # task (checked)
     elsif task.description == "*** " + task_string
       task.description = "*** " + new_description
       in_list = true
       end
     end
 
+    # if the above if statement doesn't execute either
+    # branch, the task is not in the list, and the user
+    # is given the approporiate response
     if in_list == false
       puts "That task ain't even exist brah"
     else
@@ -132,6 +142,7 @@ case command
     first_list.write_and_print
 
   when "check"
+    # checked version of the task string
     checked_task_string = "*** " + task_string
 
     counter = 0
@@ -140,7 +151,6 @@ case command
 
       # if the task description (nonchecked) equals the task_string
       # set the task description to the checked version
-
       if task.description == task_string
         task.description = checked_task_string
         counter += 1
@@ -153,8 +163,11 @@ case command
       end
     end
 
+    # if the unchecked task and the checked task
+    # aren't in the list, the task isn't in the list
     if counter < 1 && checked == false
       puts "That task ain't even exist brah"
+    # message for tasks that are already checked
     elsif checked
       puts "That task is already checked"
     end
@@ -166,6 +179,8 @@ case command
     counter = 0
     first_list.show_all_tasks.each do |task|
 
+      # if the task description equals the checked version
+      # set it to the nonchecked version
       if task.description == "*** " + task_string
         task.description = task_string
         counter += 1
@@ -174,6 +189,9 @@ case command
       end
     end
 
+    # if the above if statement doesn't execute
+    # that means no task matches the checked version
+    # of the string given in the command line
     if counter < 1
       puts "That task isn't in the list or isn't checked"
     end
@@ -186,7 +204,7 @@ case command
     first_list.show_all_tasks.each do |task|
 
     # this loops through the list
-    # if the task_string is found,
+    # if the task_string is found (checked or unchecked),
     # in_list variable is changed to true
 
     if task.description == task_string || task.description == "*** " + task_string
@@ -194,7 +212,7 @@ case command
       end
     end
 
-    # if the description is not found in the list
+    # if the task is not found in the list
     # print an error message
     if in_list == false
       puts "that task is not in the list bro"
