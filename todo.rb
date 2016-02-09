@@ -212,7 +212,7 @@ case command
       end
     end
 
-    # if the task is not found in the list
+    # if the task is not found (if statement above never is true)
     # print an error message
     if in_list == false
       puts "that task is not in the list bro"
